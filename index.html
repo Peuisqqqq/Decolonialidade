@@ -3,391 +3,445 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Decolonialidade.ufpe </title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #000000; margin: 0; padding: 0; }
-        .container { max-width: 900px; margin: 40px auto; background: #06402B; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        h1 { text-align: center; }
-        .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .gallery-item { width: 280px; background: #06402B; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 12px; text-align: center; }
-        img, video { max-width: 100%; border-radius: 4px; }
-        .caption { margin-top: 8px; font-size: 0.95em; color: #555; }
-        .instructions { background: #06402B; padding: 12px; border-radius: 6px; margin-bottom: 24px; font-size: 1em; }
-        .social-links {
-          display: flex;
-          gap: 16px;
-          justify-content: center;
-          margin: 20px 0;
-        }
-        .social-links a {
-          display: inline-block;
-          transition: transform 0.2s;
-        }
-        .social-links a:hover {
-          transform: scale(1.15);
-        }
-        .social-section {
-          text-align: center;
-          margin-top: 20px;
-          padding: 15px;
-          background: #4baf71;
-          border-radius: 8px;
-          max-width: 400px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        .social-section h3 {
-          margin-bottom: 15px;
-          color: #333;
-          font-size: 1.2em;
-        }
-        
-        /* Estilos para as abas */
-        .tabs {
-          margin: 20px 0;
-        }
-        .tab-buttons {
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          margin-bottom: 20px;
-        }
-        .tab-button {
-          padding: 12px 24px;
-          background: #4baf71;
-          color: rgb(255, 255, 255);
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 16px;
-          transition: background 0.3s;
-        }
-        .tab-button:hover {
-          background: #3a8f5a;
-        }
-        .tab-button.active {
-          background: #2d5a3a;
-        }
-        .tab-content {
-          display: none;
-          padding: 20px;
-          background: #d1b073;
-          border-radius: 8px;
-          margin-top: 10px;
-        }
-        .tab-content.active {
-          display: block;
-        }
-        
-        /* Estilos para os representantes */
-        .representante-item {
-          background: #f8f9fa;
-          padding: 20px;
-          margin: 15px 0;
-          border-radius: 8px;
-          border-left: 4px solid #4baf71;
-        }
-        .representante-item h4 {
-          color: #2d5a3a;
-          margin-bottom: 10px;
-          font-size: 1.2em;
-        }
-        .representante-item p {
-          margin: 8px 0;
-          line-height: 1.6;
-        }
-        .representante-content {
-          display: flex;
-          gap: 20px;
-          align-items: flex-start;
-        }
-        .representante-info {
-          flex: 1;
-        }
-        .representante-imagem {
-          flex-shrink: 0;
-          width: 120px;
-        }
-        .representante-imagem img {
-          width: 100%;
-          height: 120px;
-          object-fit: cover;
-          border-radius: 8px;
-        }
-        
-        /* Barra de navegação fixa no topo */
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          background: #06402B;
-          padding: 15px 0;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-          z-index: 1000;
-        }
-        .navbar-container {
-          max-width: 900px;
-          margin: 0 auto;
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          flex-wrap: wrap;
-        }
-        .navbar-button {
-          padding: 10px 20px;
-          background: transparent;
-          color: white;
-          border: 2px solid transparent;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 14px;
-          transition: all 0.3s;
-          white-space: nowrap;
-        }
-        .navbar-button:hover {
-          background: rgba(255,255,255,0.1);
-          border-color: rgba(255,255,255,0.3);
-        }
-        .navbar-button.active {
-          background: rgba(255,255,255,0.2);
-          border-color: white;
-        }
-        
-        /* Ajuste do conteúdo para a barra fixa */
-        body {
-          padding-top: 80px;
-        }
-    </style>
+    <title>Decolonialidade.ufpe</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <!-- Antes da barra de navegação, inserir o vídeo de fundo -->
+    <!-- ========================================
+         VÍDEO DE FUNDO
+    ========================================= -->
     <video autoplay loop muted playsinline style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -1;">
         <source src="src/PERIFERIA KKK.mp4" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
     </video>
 
-    <!-- Barra de navegação fixa -->
-    <div class="navbar">
-      <div class="navbar-container">
-        <button class="navbar-button active" onclick="openTab('inicio')">Início</button>
-        <button class="navbar-button" onclick="openTab('sobre')">Sobre</button>
-        <button class="navbar-button" onclick="openTab('galeria')">Galeria</button>
-        <button class="navbar-button" onclick="openTab('ongs')">ONGs</button>
-        <button class="navbar-button" onclick="openTab('representantes')">Representantes</button>
-        <button class="navbar-button" onclick="openTab('contato')">Contato</button>
-      </div>
-    </div>
+    <!-- ========================================
+         BARRA DE NAVEGAÇÃO
+    ========================================= -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <button class="navbar-button active" onclick="openTab('inicio')">Início</button>
+            <button class="navbar-button" onclick="openTab('sobre')">Sobre</button>
+            <button class="navbar-button" onclick="openTab('galeria')">Galeria</button>
+            <button class="navbar-button" onclick="openTab('ongs')">ONGs</button>
+            <button class="navbar-button" onclick="openTab('representantes')">Representantes</button>
+            <button class="navbar-button" onclick="openTab('contato')">Contato</button>
+        </div>
+    </nav>
     
-    <div class="container">
-        <h1>Decolonializa</h1>
-          
-          <!-- Conteúdo da aba Início -->
-          <div id="inicio" class="tab-content active">
-            <h2>Bem-vindo ao Decolonializa</h2>
-            <p>Este projeto foi criado por estudantes de Filosofia da UFPE como parte de um esforço na disciplina de Fundamentos da Educação, 2025.1, sob a orientação do professor Cristiano de França. A proposta é dar voz às questões relacionadas aos problemas da colonialidade e servir como um espaço de resistência contra a história única. Aqui, compartilharemos conteúdos, reflexões e vivências com uma abordagem decolonial. Venha conosco e vamos construir juntos!</p>
-          </div>
-          
-          <!-- Conteúdo da aba Sobre -->
-          <div id="sobre" class="tab-content">
+    <!-- ========================================
+         CONTEÚDO DAS ABAS
+    ========================================= -->
+    
+    <!-- ABA INÍCIO -->
+    <section id="inicio" class="tab-content active">
+        <div class="title">
+            <h1>DECOLONIALIZA</h1>
+        </div>
+    </section>
+    
+    <!-- ABA SOBRE -->
+    <section id="sobre" class="tab-content">
+        <div class="container">
             <h2>Quem Somos</h2>
             <div class="instructions">
-              <strong>Quem somos: </strong><br>
-              <p>Site foi criado por estudantes de Filosofia da UFPE como parte de um projeto da disciplina de Fundamentos da Educação, 2025.1, 
-                  ministrada no CE pelo professor Cristiano de França. A ideia aqui é dar voz às questões dos problemas da colonialidade e ser um espaço de resistência contra a história única. 
-                  Vamos compartilhar conteúdos, reflexões e vivências com uma pegada decolonial. Chega mais e bora construir juntos!</p>
+                <strong>Quem somos:</strong>
+                <p>
+                    Site foi criado por estudantes de Filosofia da UFPE como parte de um projeto da disciplina 
+                    de Fundamentos da Educação, 2025.1, ministrada no CE pelo professor Cristiano de França. 
+                    A ideia aqui é dar voz às questões dos problemas da colonialidade e ser um espaço de 
+                    resistência contra a história única. Vamos compartilhar conteúdos, reflexões e vivências 
+                    com uma pegada decolonial. Chega mais e bora construir juntos!
+                </p>
             </div>
-          </div>
-          
-          <!-- Conteúdo da aba Galeria -->
-          <div id="galeria" class="tab-content">
+        </div>
+    </section>
+    
+    <!-- ABA GALERIA -->
+    <section id="galeria" class="tab-content">
+        <div class="container">
             <h2>Galeria de Mídias</h2>
             <div class="gallery">
-              <div class="gallery-item">
-                <img src="src/FILHO DA PUTA.png" alt="FILHO DA PUTA">
-                <div class="caption">FILHO DA PUTA</div>
-              </div>
-              <div class="gallery-item">
-                <video src="src/PESO.mp4" autoplay loop muted playsinline></video>
-                <div class="caption">Filho do diabo Dançando</div>
-              </div>
+                <div class="gallery-item">
+                    <img src="src/FILHO DA PUTA.png" alt="FILHO DA PUTA">
+                    <div class="caption">FILHO DA PUTA</div>
+                </div>
+                <div class="gallery-item">
+                    <video src="src/PESO.mp4" autoplay loop muted playsinline></video>
+                    <div class="caption">Filho do diabo Dançando</div>
+                </div>
             </div>
-          </div>
-          
-          <!-- Conteúdo da aba ONGs -->
-          <div id="ongs" class="tab-content">
+        </div>
+    </section>
+    
+    <!-- ABA ONGs -->
+    <section id="ongs" class="tab-content">
+        <div class="container">
             <h2>Apoie as Causas Indígenas e Negras no Brasil</h2>
-            <p>No Brasil, diversas ONGs estão na linha de frente da luta por direitos e justiça social, promovendo a igualdade e a valorização das culturas indígenas e negras. Aqui estão algumas maneiras de você fazer a diferença:</p>
+            <p>
+                No Brasil, diversas ONGs estão na linha de frente da luta por direitos e justiça social, 
+                promovendo a igualdade e a valorização das culturas indígenas e negras. Aqui estão algumas 
+                maneiras de você fazer a diferença:
+            </p>
             
+            <!-- Causas Indígenas -->
             <h3>🌿 Causas Indígenas</h3>
             
             <h4>CIMI (Conselho Indigenista Missionário)</h4>
             <p><strong>Saiba mais:</strong> <a href="https://cimi.org.br" target="_blank">cimi.org.br</a></p>
-            <p><strong>Como ajudar?</strong> Contribua com doações que apoiam a formação e a defesa dos direitos dos povos indígenas. Sua ajuda pode fazer a diferença!</p>
+            <p>
+                <strong>Como ajudar?</strong> Contribua com doações que apoiam a formação e a defesa dos 
+                direitos dos povos indígenas. Sua ajuda pode fazer a diferença!
+            </p>
             
             <h4>APIB (Articulação dos Povos Indígenas do Brasil)</h4>
             <p><strong>Descubra:</strong> <a href="https://apiboficial.org" target="_blank">apiboficial.org</a></p>
-            <p><strong>Como participar?</strong> Doe para campanhas que garantem alimentos, remédios e materiais de higiene para as aldeias. Junte-se a nós nessa luta!</p>
+            <p>
+                <strong>Como participar?</strong> Doe para campanhas que garantem alimentos, remédios e 
+                materiais de higiene para as aldeias. Junte-se a nós nessa luta!
+            </p>
             
             <h4>ISA (Instituto Socioambiental)</h4>
             <p><strong>Acesse:</strong> <a href="https://socioambiental.org" target="_blank">socioambiental.org</a></p>
-            <p><strong>Faça parte:</strong> O ISA aceita doações e apoio em projetos que visam a proteção dos direitos territoriais e culturais dos povos indígenas.</p>
+            <p>
+                <strong>Faça parte:</strong> O ISA aceita doações e apoio em projetos que visam a proteção 
+                dos direitos territoriais e culturais dos povos indígenas.
+            </p>
             
+            <!-- Causas Negras -->
             <h3>✊ Causas Negras</h3>
             
             <h4>Instituto Marielle Franco</h4>
             <p><strong>Conheça:</strong> <a href="https://institutomariellefranco.org" target="_blank">institutomariellefranco.org</a></p>
-            <p><strong>Como ajudar?</strong> Inscreva-se na Rede Voluntária e compartilhe seu tempo e talento para fortalecer os direitos humanos.</p>
+            <p>
+                <strong>Como ajudar?</strong> Inscreva-se na Rede Voluntária e compartilhe seu tempo e 
+                talento para fortalecer os direitos humanos.
+            </p>
             
             <h4>Coletivo de Mulheres Negras</h4>
-            <p><strong>Envolva-se:</strong> Pesquise sobre coletivos locais e veja como suas doações e participação podem impactar diretamente a vida dessas mulheres.</p>
+            <p>
+                <strong>Envolva-se:</strong> Pesquise sobre coletivos locais e veja como suas doações e 
+                participação podem impactar diretamente a vida dessas mulheres.
+            </p>
             
             <h4>Educafro</h4>
             <p><strong>Visite:</strong> <a href="https://educafro.org.br" target="_blank">educafro.org.br</a></p>
-            <p><strong>Contribua:</strong> Torne-se um associado e ajude a promover a inclusão e o acesso à educação para jovens e adultos negros e pardos.</p>
+            <p>
+                <strong>Contribua:</strong> Torne-se um associado e ajude a promover a inclusão e o acesso 
+                à educação para jovens e adultos negros e pardos.
+            </p>
             
-            <h3> Como Você Pode Ajudar</h3>
+            <!-- Como Ajudar -->
+            <h3>Como Você Pode Ajudar</h3>
             <ul>
-              <li><strong>Doações:</strong> Sua contribuição financeira é essencial para a continuidade dos projetos.</li>
-              <li><strong>Voluntariado:</strong> Ofereça seu tempo e habilidades para apoiar as atividades das ONGs.</li>
-              <li><strong>Divulgação:</strong> Compartilhe informações sobre essas organizações nas suas redes sociais. Ajude a aumentar a conscientização!</li>
+                <li><strong>Doações:</strong> Sua contribuição financeira é essencial para a continuidade dos projetos.</li>
+                <li><strong>Voluntariado:</strong> Ofereça seu tempo e habilidades para apoiar as atividades das ONGs.</li>
+                <li><strong>Divulgação:</strong> Compartilhe informações sobre essas organizações nas suas redes sociais. Ajude a aumentar a conscientização!</li>
             </ul>
             
             <p><strong>Cada pequena ação conta. Junte-se a nós e faça parte dessa mudança transformadora!</strong></p>
-          </div>
-          
-          <!-- Conteúdo da aba Representantes -->
-          <div id="representantes" class="tab-content">
+        </div>
+    </section>
+    
+    <!-- ABA REPRESENTANTES -->
+    <section id="representantes" class="tab-content">
+        <div class="container">
             <h2>Principais Representantes das Causas Indígenas e Negras no Brasil</h2>
             
+            <!-- Causas Indígenas -->
             <h3>🌿 Causas Indígenas</h3>
             
             <div class="representante-item">
-              <div class="representante-content">
-                <div class="representante-info">
-                  <h4>Davi Kopenawa Yanomami</h4>
-                  <p><strong>Papel:</strong> Líder indígena e xamã da etnia Yanomami.</p>
-                  <p><strong>Contribuições:</strong> Defensor da Amazônia e dos direitos indígenas, autor do livro "A Queda do Céu", que narra a cultura e os desafios enfrentados pelos Yanomami.</p>
+                <div class="representante-content">
+                    <div class="representante-info">
+                        <h4>Davi Kopenawa Yanomami</h4>
+                        <p><strong>Papel:</strong> Líder indígena e xamã da etnia Yanomami.</p>
+                        <p>
+                            <strong>Contribuições:</strong> Defensor da Amazônia e dos direitos indígenas, 
+                            autor do livro "A Queda do Céu", que narra a cultura e os desafios enfrentados 
+                            pelos Yanomami.
+                        </p>
+                    </div>
+                    <div class="representante-imagem">
+                        <img src="src/Davi kopenawa.jpg" alt="Davi Kopenawa Yanomami">
+                    </div>
                 </div>
-                <div class="representante-imagem">
-                  <img src="src/Davi kopenawa.jpg" alt="Davi Kopenawa Yanomami">
-                </div>
-              </div>
             </div>
             
             <div class="representante-item">
-              <div class="representante-content">
-                <div class="representante-info">
-                  <h4>Sônia Guajajara</h4>
-                  <p><strong>Papel:</strong> Líder indígena, ativista e atualmente ministra dos Povos Indígenas.</p>
-                  <p><strong>Contribuições:</strong> Uma das vozes mais proeminentes na luta pelos direitos indígenas no Brasil, Sônia é conhecida por seu trabalho em defesa da preservação ambiental e dos direitos territoriais.</p>
+                <div class="representante-content">
+                    <div class="representante-info">
+                        <h4>Sônia Guajajara</h4>
+                        <p><strong>Papel:</strong> Líder indígena, ativista e atualmente ministra dos Povos Indígenas.</p>
+                        <p>
+                            <strong>Contribuições:</strong> Uma das vozes mais proeminentes na luta pelos 
+                            direitos indígenas no Brasil, Sônia é conhecida por seu trabalho em defesa da 
+                            preservação ambiental e dos direitos territoriais.
+                        </p>
+                    </div>
+                    <div class="representante-imagem">
+                        <img src="src/Sônia Guajajara.jpeg" alt="Sônia Guajajara">
+                    </div>
                 </div>
-                <div class="representante-imagem">
-                  <img src="src/Sônia Guajajara.jpeg" alt="Sônia Guajajara">
-                </div>
-              </div>
             </div>
             
             <div class="representante-item">
-              <div class="representante-content">
-                <div class="representante-info">
-                  <h4>Ailton Krenak</h4>
-                  <p><strong>Papel:</strong> Líder indígena e ativista.</p>
-                  <p><strong>Contribuições:</strong> Reconhecido pela sua luta pela valorização cultural dos povos indígenas e por sua crítica ao modelo de desenvolvimento que ignora a sabedoria ancestral.</p>
+                <div class="representante-content">
+                    <div class="representante-info">
+                        <h4>Ailton Krenak</h4>
+                        <p><strong>Papel:</strong> Líder indígena e ativista.</p>
+                        <p>
+                            <strong>Contribuições:</strong> Reconhecido pela sua luta pela valorização 
+                            cultural dos povos indígenas e por sua crítica ao modelo de desenvolvimento que 
+                            ignora a sabedoria ancestral.
+                        </p>
+                    </div>
+                    <div class="representante-imagem">
+                        <img src="src/Ailton Krenak.webp" alt="Ailton Krenak">
+                    </div>
                 </div>
-                <div class="representante-imagem">
-                  <img src="src/Ailton Krenak.webp" alt="Ailton Krenak">
-                </div>
-              </div>
             </div>
             
+            <!-- Causas Negras -->
             <h3>✊ Causas Negras</h3>
             
             <div class="representante-item">
-              <div class="representante-content">
-                <div class="representante-info">
-                  <h4>Marielle Franco</h4>
-                  <p><strong>Papel:</strong> Política e ativista dos direitos humanos.</p>
-                  <p><strong>Contribuições:</strong> Famosa por sua luta contra a violência, a desigualdade racial e de gênero. Seu assassinato em 2018 gerou um movimento global por justiça e igualdade.</p>
+                <div class="representante-content">
+                    <div class="representante-info">
+                        <h4>Marielle Franco</h4>
+                        <p><strong>Papel:</strong> Política e ativista dos direitos humanos.</p>
+                        <p>
+                            <strong>Contribuições:</strong> Famosa por sua luta contra a violência, a 
+                            desigualdade racial e de gênero. Seu assassinato em 2018 gerou um movimento 
+                            global por justiça e igualdade.
+                        </p>
+                    </div>
+                    <div class="representante-imagem">
+                        <img src="src/Marielle Franco.jpeg" alt="Marielle Franco">
+                    </div>
                 </div>
-                <div class="representante-imagem">
-                  <img src="src/Marielle Franco.jpeg" alt="Marielle Franco">
-                </div>
-              </div>
             </div>
             
             <div class="representante-item">
-              <div class="representante-content">
-                <div class="representante-info">
-                  <h4>Silvio de Almeida</h4>
-                  <p><strong>Papel:</strong> Advogado, professor e ativista.</p>
-                  <p><strong>Contribuições:</strong> Reconhecido por seu trabalho na defesa dos direitos humanos e na reflexão crítica sobre racismo estrutural e suas consequências na sociedade brasileira.</p>
+                <div class="representante-content">
+                    <div class="representante-info">
+                        <h4>Silvio de Almeida</h4>
+                        <p><strong>Papel:</strong> Advogado, professor e ativista.</p>
+                        <p>
+                            <strong>Contribuições:</strong> Reconhecido por seu trabalho na defesa dos 
+                            direitos humanos e na reflexão crítica sobre racismo estrutural e suas 
+                            consequências na sociedade brasileira.
+                        </p>
+                    </div>
+                    <div class="representante-imagem">
+                        <img src="src/Silvio de Almeida.jpg" alt="Silvio de Almeida">
+                    </div>
                 </div>
-                <div class="representante-imagem">
-                  <img src="src/Silvio de Almeida.jpg" alt="Silvio de Almeida">
-                </div>
-              </div>
             </div>
             
             <div class="representante-item">
-              <div class="representante-content">
-                <div class="representante-info">
-                  <h4>Lélia Gonzalez</h4>
-                  <p><strong>Papel:</strong> Intelectual, ativista e feminista.</p>
-                  <p><strong>Contribuições:</strong> Uma das principais vozes do movimento negro no Brasil, Lélia abordou a intersecção entre raça e gênero, promovendo o empoderamento de mulheres negras.</p>
+                <div class="representante-content">
+                    <div class="representante-info">
+                        <h4>Lélia Gonzalez</h4>
+                        <p><strong>Papel:</strong> Intelectual, ativista e feminista.</p>
+                        <p>
+                            <strong>Contribuições:</strong> Uma das principais vozes do movimento negro 
+                            no Brasil, Lélia abordou a intersecção entre raça e gênero, promovendo o 
+                            empoderamento de mulheres negras.
+                        </p>
+                    </div>
+                    <div class="representante-imagem">
+                        <img src="src/Lélia Gonzalez.jpg" alt="Lélia Gonzalez">
+                    </div>
                 </div>
-                <div class="representante-imagem">
-                  <img src="src/Lélia Gonzalez.jpg" alt="Lélia Gonzalez">
-                </div>
-              </div>
             </div>
-            
-            <!-- Galeria de imagens dos representantes -->
-            <
-              <!-- Adicione mais imagens conforme necessário -->
-            </div>
-          </div>
-          
-          <!-- Conteúdo da aba Contato -->
-          <div id="contato" class="tab-content">
+        </div>
+    </section>
+    
+    <!-- ABA CONTATO -->
+    <section id="contato" class="tab-content">
+        <div class="container">
             <h2>Entre em Contato</h2>
             <p>Quer participar do projeto ou tem alguma sugestão? Entre em contato conosco!</p>
             
             <div class="social-section">
-              <h3>Saiba mais pelas nossas redes sociais</h3>
-              <div class="social-links">
-                <a href="https://www.instagram.com/decolonializando.filos/" target="_blank" title="Instagram">
-                  <!-- Ícone Instagram SVG -->
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="#000000"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43C2.212 15.784 2.2 15.4 2.2 12s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43C2.212 15.784 2.2 15.4 2.2 12s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41C8.416 2.212 8.8 2.2 12 2.2zm0-2.2C8.736 0 8.332.012 7.052.07 5.77.128 4.77.312 4.02.54c-.77.23-1.42.54-2.07 1.19-.65.65-.96 1.3-1.19 2.07C.312 4.77.128 5.77.07 7.052.012 8.332 0 8.736 0 12c0 3.264.012 3.668.07 4.948.058 1.282.242 2.282.47 3.032.23.77.54 1.42 1.19 2.07.65.65 1.3.96 2.07 1.19.75.228 1.75.412 3.032.47C8.332 23.988 8.736 24 12 24s3.668-.012 4.948-.07c1.282-.058 2.282-.242 3.032-.47.77-.23 1.42-.54 2.07-1.19.65-.65.96-1.3 1.19-2.07.228-.75.412-1.75.47-3.032.058-1.28.07-1.684.07-4.948s-.012-3.668-.07-4.948c-.058-1.282-.242-2.282-.47-3.032-.23-.77-.54-1.42-1.19-2.07-.65-.65-1.3-.96-2.07-1.19-.75-.228-1.75-.412-3.032-.47C15.668.012 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm7.844-10.406a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-                </a>
-              </div>
+                <h3>Saiba mais pelas nossas redes sociais</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/decolonializando.filos/" target="_blank" title="Instagram">
+                        <!-- Ícone Instagram SVG -->
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="#000000">
+                            <path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43C2.212 15.784 2.2 15.4 2.2 12s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43C2.212 15.784 2.2 15.4 2.2 12s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41C8.416 2.212 8.8 2.2 12 2.2zm0-2.2C8.736 0 8.332.012 7.052.07 5.77.128 4.77.312 4.02.54c-.77.23-1.42.54-2.07 1.19-.65.65-.96 1.3-1.19 2.07C.312 4.77.128 5.77.07 7.052.012 8.332 0 8.736 0 12c0 3.264.012 3.668.07 4.948.058 1.282.242 2.282.47 3.032.23.77.54 1.42 1.19 2.07.65.65 1.3.96 2.07 1.19.75.228 1.75.412 3.032.47C8.332 23.988 8.736 24 12 24s3.668-.012 4.948-.07c1.282-.058 2.282-.242 3.032-.47.77-.23 1.42-.54 2.07-1.19.65-.65.96-1.3 1.19-2.07.228-.75.412-1.75.47-3.032.058-1.28.07-1.684.07-4.948s-.012-3.668-.07-4.948c-.058-1.282-.242-2.282-.47-3.032-.23-.77-.54-1.42-1.19-2.07-.65-.65-1.3-.96-2.07-1.19-.75-.228-1.75-.412-3.032-.47C15.668.012 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm7.844-10.406a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-        
-
+    </section>
+    
+    <!-- ========================================
+         POP-UPS DO INSTAGRAM
+    ========================================= -->
+    
+    <!-- Overlay para os pop-ups -->
+    <div id="instagram-overlay" class="instagram-overlay">
+        <div class="instagram-popup">
+            <div class="popup-header">
+                <h3>📸 Últimas do Instagram</h3>
+                <button class="close-popup" onclick="closeInstagramPopup()">×</button>
+            </div>
+            <div class="instagram-feed">
+                <div class="instagram-post">
+                    <div class="post-header">
+                        <a href="https://www.instagram.com/decolonializando.filos/" target="_blank">
+                            <img src="src/DECOLONIALIZA.png" alt="Perfil" class="profile-pic">
+                        </a>
+                        <div class="post-info">
+                            <a href="https://www.instagram.com/decolonializando.filos/" target="_blank" style="text-decoration:none;color:inherit;">
+                                <strong>decolonializando.filos</strong>
+                            </a>
+                            <span class="post-location">Recife, Brasil</span>
+                        </div>
+                    </div>
+                    <div class="post-image">
+                        <img src="src/DECOLONIALIZA.png" alt="Post do Instagram">
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn">❤️</button>
+                        <button class="action-btn">💬</button>
+                        <button class="action-btn">📤</button>
+                    </div>
+                    <div class="post-caption">
+                        <strong>decolonializando.filos</strong> 
+                        Esse perfil foi criado por estudantes de Filosofia da UFPE como parte de um projeto da disciplina de Fundamentos da Educação, 2025.1, ministrada no CE pelo professor Cristiano de França. A ideia aqui é dar voz às questões dos problemas da colonialidade e ser um espaço de resistência contra a história única. Vamos compartilhar conteúdos, reflexões e vivências com uma pegada decolonial. Chega mais e bora construir juntos!
+                    </div>
+                    <div class="post-time">há 1 hora</div>
+                </div>
+                <div class="instagram-post">
+                    <div class="post-header">
+                        <a href="https://www.instagram.com/decolonializando.filos/" target="_blank">
+                            <img src="src/202 anos da verdade.png" alt="Perfil" class="profile-pic">
+                        </a>
+                        <div class="post-info">
+                            <a href="https://www.instagram.com/decolonializando.filos/" target="_blank" style="text-decoration:none;color:inherit;">
+                                <strong>decolonializando.filos</strong>
+                            </a>
+                            <span class="post-location">Recife, Brasil</span>
+                        </div>
+                    </div>
+                    <div class="post-image">
+                        <img src="src/202 anos da verdade.png" alt="Post do Instagram">
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn">❤️</button>
+                        <button class="action-btn">💬</button>
+                        <button class="action-btn">📤</button>
+                    </div>
+                    <div class="post-caption">
+                        <strong>decolonializando.filos</strong> 
+                        2 de julho de 1823: a verdadeira Independência do Brasil e um marco na luta contra o domínio colonial português. Também reconhecido como o "Dia da Independência da Bahia", é considerado por muitos historiadores a concretização da Independência do Brasil. Nessa data, há exatamente 202 anos atrás, houve a expulsão definitiva das tropas portuguesas do Brasil, pois, embora o 7 de setembro de 1822 seja a data oficialmente reconhecida como o marco da independência do Brasil, a realidade é que a luta pela independência continuou em várias regiões, especialmente na Bahia. Após o 7 de setembro, diversas tropas portuguesas ainda estavam no Brasil e tentavam manter o controle sobre algumas províncias. A Bahia era uma das mais importantes por sua posição estratégica e econômica, e ali se concentrou uma resistência significativa contra o domínio português. A resistência baiana foi formada por pessoas de diferentes origens sociais: indígenas, negros, escravizados, libertos, soldados e líderes sociais. Destacam-se, dentre outros, figuras como: Maria Quitéria (mulher que se disfarçou de homem para lutar nas tropas brasileiras), Joana Angélica (freira morta pelas tropas portuguesas ao tentar proteger seu convento), Cipriano Barata (jornalista e político engajado), corneteiro Lopes (que anunciou a vitória com seu toque de corneta).
+                        <br><br>
+                        A COLONIZAÇÃO ACABOU, MAS A COLONIALIDADE (do poder, do saber, do ser) PERSISTE ATÉ OS DIAS DE HOJE. VAMOS HONRAR OS ANCESTRAIS E LUTAR CONTRA ESSES REFLEXOS DA COLONIZAÇÃO, TÃO DANOSOS PARA NOSSA SOCIEDADE!
+                    </div>
+                    <div class="post-time">há 2 horas</div>
+                </div>
+            </div>
+        </div>
     </div>
     
+    <!-- Botão flutuante para abrir os pop-ups -->
+    <div class="instagram-float-btn" onclick="openInstagramPopup()">
+        <!-- Ícone Instagram SVG -->
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="url(#paint0_linear_1_2)"/>
+            <path d="M16.98 2H7.02C4.25 2 2 4.25 2 7.02V16.98C2 19.75 4.25 22 7.02 22H16.98C19.75 22 22 19.75 22 16.98V7.02C22 4.25 19.75 2 16.98 2ZM20 16.98C20 18.1 18.98 19.12 16.98 19.12H7.02C5.02 19.12 4 18.1 4 16.98V7.02C4 5.9 5.02 4.88 7.02 4.88H16.98C18.98 4.88 20 5.9 20 7.02V16.98Z" fill="white"/>
+            <path d="M12 7.5C9.51 7.5 7.5 9.51 7.5 12C7.5 14.49 9.51 16.5 12 16.5C14.49 16.5 16.5 14.49 16.5 12C16.5 9.51 14.49 7.5 12 7.5ZM12 14.5C10.62 14.5 9.5 13.38 9.5 12C9.5 10.62 10.62 9.5 12 9.5C13.38 9.5 14.5 10.62 14.5 12C14.5 13.38 13.38 14.5 12 14.5Z" fill="white"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="white"/>
+            <defs>
+                <linearGradient id="paint0_linear_1_2" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#F58529"/>
+                    <stop offset="0.5" stop-color="#DD2A7B"/>
+                    <stop offset="1" stop-color="#515BD4"/>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- ========================================
+         JAVASCRIPT
+    ========================================= -->
     <script>
+        /**
+         * Função para alternar entre as abas
+         * @param {string} tabName - Nome da aba a ser exibida
+         */
         function openTab(tabName) {
             // Esconde todos os conteúdos das abas
-            var tabContents = document.getElementsByClassName('tab-content');
-            for (var i = 0; i < tabContents.length; i++) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
                 tabContents[i].classList.remove('active');
             }
             
             // Remove a classe 'active' de todos os botões da navbar
-            var navbarButtons = document.getElementsByClassName('navbar-button');
-            for (var i = 0; i < navbarButtons.length; i++) {
+            const navbarButtons = document.getElementsByClassName('navbar-button');
+            for (let i = 0; i < navbarButtons.length; i++) {
                 navbarButtons[i].classList.remove('active');
             }
             
             // Mostra o conteúdo da aba selecionada
-            document.getElementById(tabName).classList.add('active');
+            const selectedTab = document.getElementById(tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
             
             // Adiciona a classe 'active' ao botão clicado
             event.target.classList.add('active');
         }
+        
+        /**
+         * Inicialização quando a página carrega
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Se nenhuma aba estiver ativa, ativa a aba "Início"
+            const activeTabs = document.querySelectorAll('.tab-content.active');
+            if (activeTabs.length === 0) {
+                openTab('inicio');
+            }
+            
+            // Mostra o pop-up do Instagram automaticamente após 3 segundos
+            setTimeout(() => {
+                openInstagramPopup();
+            }, 3000);
+        });
+        
+        /**
+         * Função para abrir o pop-up do Instagram
+         */
+        function openInstagramPopup() {
+            const overlay = document.getElementById('instagram-overlay');
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Previne scroll
+        }
+        
+        /**
+         * Função para fechar o pop-up do Instagram
+         */
+        function closeInstagramPopup() {
+            const overlay = document.getElementById('instagram-overlay');
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaura scroll
+        }
+        
+        /**
+         * Fecha o pop-up quando clica fora dele
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById('instagram-overlay');
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    closeInstagramPopup();
+                }
+            });
+        });
     </script>
 </body>
 </html> 
