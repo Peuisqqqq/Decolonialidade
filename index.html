@@ -377,6 +377,98 @@
                     </div>
                     <div class="post-time">há 2 horas</div>
                 </div>
+                
+                <!-- POSTAGEM COM MÚLTIPLAS IMAGENS -->
+                <div class="instagram-post">
+                    <div class="post-header">
+                        <a href="#" target="_blank">
+                            <img src="src/DECOLONIALIZA 4.jpeg" alt="Perfil" class="profile-pic">
+                        </a>
+                        <div class="post-info">
+                            <a href="#" target="_blank" style="text-decoration:none;color:inherit;">
+                                <strong>decolonializando.filos</strong>
+                            </a>
+                            <span class="post-location">Recife, Brasil</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Container das múltiplas imagens -->
+                    <div class="post-image-container" style="position:relative;background:#000;">
+                        <div class="image-slider" id="imageSlider" style="display:flex;transition:transform 0.3s ease;">
+                            <img src="src/DECOLONIALIZA 4.jpeg" alt="Imagem 1" style="width:100%;height:auto;object-fit:contain;min-width:100%;">
+                            <img src="src/DECOLONIALIZA 5.jpeg" alt="Imagem 2" style="width:100%;height:auto;object-fit:contain;min-width:100%;">
+                            <img src="src/DECOLONIALIZA 6.jpeg" alt="Imagem 3" style="width:100%;height:auto;object-fit:contain;min-width:100%;">
+                            <img src="src/DECOLONIALIZA 7.jpeg" alt="Imagem 4" style="width:100%;height:auto;object-fit:contain;min-width:100%;">
+                            <img src="src/DECOLONIALIZA 8.jpeg" alt="Imagem 5" style="width:100%;height:auto;object-fit:contain;min-width:100%;">
+                            <img src="src/DECOLONIALIZA 9.jpeg" alt="Imagem 6" style="width:100%;height:auto;object-fit:contain;min-width:100%;">
+                        </div>
+                        
+                        <!-- Botões de navegação -->
+                        <button class="nav-btn prev-btn" onclick="changeImage(-1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:18px;">‹</button>
+                        <button class="nav-btn next-btn" onclick="changeImage(1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:18px;">›</button>
+                        
+                        <!-- Indicadores de pontos -->
+                        <div class="image-indicators" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:5px;">
+                            <span class="indicator active" onclick="goToImage(0)" style="width:8px;height:8px;border-radius:50%;background:white;cursor:pointer;opacity:1;"></span>
+                            <span class="indicator" onclick="goToImage(1)" style="width:8px;height:8px;border-radius:50%;background:white;cursor:pointer;opacity:0.5;"></span>
+                            <span class="indicator" onclick="goToImage(2)" style="width:8px;height:8px;border-radius:50%;background:white;cursor:pointer;opacity:0.5;"></span>
+                            <span class="indicator" onclick="goToImage(3)" style="width:8px;height:8px;border-radius:50%;background:white;cursor:pointer;opacity:0.5;"></span>
+                            <span class="indicator" onclick="goToImage(4)" style="width:8px;height:8px;border-radius:50%;background:white;cursor:pointer;opacity:0.5;"></span>
+                            <span class="indicator" onclick="goToImage(5)" style="width:8px;height:8px;border-radius:50%;background:white;cursor:pointer;opacity:0.5;"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn">❤️</button>
+                        <button class="action-btn">💬</button>
+                        <button class="action-btn">📤</button>
+                    </div>
+                    <div class="post-caption">
+                        <strong>decolonializando.filos</strong> <br>
+                        O que é colonialidade? Porque ainda estamos longe de superar essa antiga condição tão atual?
+                    </div>
+                    <div class="post-time">há 30 minutos</div>
+                </div>
+                
+                <!-- POSTAGEM ANTERIOR COM DECOLONIALIZA 3.jpeg -->
+                <div class="instagram-post">
+                    <div class="post-header">
+                        <a href="#" target="_blank">
+                            <img src="src/DECOLONIALIZA 3.jpeg" alt="Perfil" class="profile-pic">
+                        </a>
+                        <div class="post-info">
+                            <a href="#" target="_blank" style="text-decoration:none;color:inherit;">
+                                <strong>decolonializando.filos</strong>
+                            </a>
+                            <span class="post-location">Recife, Brasil</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-image">
+                        <img src="src/DECOLONIALIZA 3.jpeg" alt="Post do Instagram" style="width:100%;height:auto;object-fit:contain;max-height:400px;background:#fff;">
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn">❤️</button>
+                        <button class="action-btn">💬</button>
+                        <button class="action-btn">📤</button>
+                    </div>
+                    <div class="post-caption">
+                        <strong>decolonializando.filos</strong> <br>
+                        📣 REFLEXÃO URGENTE: Quem decide o que é saber?<br>
+                        🌍 Durante séculos, os colonizadores impuseram a ideia de que apenas o conhecimento europeu é válido — deslegitimando culturas, saberes e vidas inteiras.<br>
+                        📚 Povos originários e culturas não europeias foram silenciados e considerados "inferiores" dentro de uma lógica racista, excludente e violenta.<br>
+                        🔍 Esse sistema criou uma hierarquia dos saberes, onde tudo que foge do pensamento ocidental é tratado como ignorância — negando a diversidade, sufocando outras formas de ver e viver o mundo.<br>
+                        💭 O nome disso? Colonialismo epistêmico.<br>
+                        É a invasão das ideias, a destruição das múltiplas formas de conhecimento, a negação da existência de outros modos de ser.<br>
+                        🔥 Mas resistimos. E resistir é relembrar que o saber não tem cor, nem dono.<br>
+                        Conhecimento é plural, vivo e diverso.<br><br>
+                        Valorize os saberes dos povos indígenas, negros e de todas as culturas silenciadas pela história.<br>
+                        🌀 Outra forma de pensar o mundo é possível — e urgente.<br>
+                        #Descolonize #SaberesAncestrais #Anticolonialismo #ConsciênciaCrítica #PovosOriginários #ConhecimentoÉDiversidade #Resistência
+                    </div>
+                    <div class="post-time">há 1 hora</div>
+                </div>
             </div>
         </div>
     </div>
@@ -690,6 +782,44 @@
             }
         `;
         document.head.appendChild(style);
+        
+        /**
+         * Controle das múltiplas imagens
+         */
+        let currentImageIndex = 0;
+        const totalImages = 6;
+        
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + totalImages) % totalImages;
+            updateImageSlider();
+            updateIndicators();
+        }
+        
+        function goToImage(index) {
+            currentImageIndex = index;
+            updateImageSlider();
+            updateIndicators();
+        }
+        
+        function updateImageSlider() {
+            const slider = document.getElementById('imageSlider');
+            if (slider) {
+                slider.style.transform = `translateX(-${currentImageIndex * 100}%)`;
+            }
+        }
+        
+        function updateIndicators() {
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentImageIndex) {
+                    indicator.style.opacity = '1';
+                    indicator.classList.add('active');
+                } else {
+                    indicator.style.opacity = '0.5';
+                    indicator.classList.remove('active');
+                }
+            });
+        }
     </script>
 </body>
 </html> 
